@@ -58,3 +58,7 @@ export const quizData = {
     // Add more questions here
   ],
 };
+
+export default {
+  stuff: 'stuff',
+};
