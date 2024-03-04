@@ -44,3 +44,7 @@ ul {
   background-color: rgb(107, 43, 15);
   color: white;
 }
+
+.current-scores {
+  margin-top: 20px;
+}

@@ -7,6 +7,9 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 
+// Counts how many answers are correct. Every right answer will increment this variable by 1
+let correctCounter = 0;
+
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -20,8 +23,11 @@ export const initQuestionPage = () => {
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   answersListElement.classList.add('answers-list');
 
-  // Counts how many answers are correct. Every right answer will increment this variable by 1
-  let correctCounter = 0;
+  // This block displays current score
+  const currentScores = document.createElement('div');
+  currentScores.classList.add('current-scores');
+  currentScores.innerHTML = `Correct answers: ${correctCounter} of ${quizData.questions.length}`;
+  userInterface.appendChild(currentScores);
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
@@ -32,7 +38,7 @@ export const initQuestionPage = () => {
     answerElement.addEventListener('click', function () {
       // When you click the answer, previous selection loses selection color
       const answerElements = document.querySelectorAll('.answer-element');
-      answerElements.forEach(answer => {
+      answerElements.forEach((answer) => {
         answer.classList.remove('answer-selected');
         answer.classList.remove('answer-correct');
         answer.classList.remove('answer-incorrect');
@@ -41,30 +47,31 @@ export const initQuestionPage = () => {
       // When you click the answer, it receives selection color
       answerElement.classList.add('answer-selected');
 
-      // Selected answer receives a color depending on whether it's correct or not. 
+      // Selected answer receives a color depending on whether it's correct or not.
       // Then user moves to the next question
-      let answerCorrect = function() {
+      let answerCorrect = function () {
         answerElement.classList.add('answer-correct');
-        correctCounter++;
-        setTimeout(function() {
+        setTimeout(function () {
           nextQuestion();
         }, 500);
-      }
+      };
 
-      let answerIncorrect = function() {
+      let answerIncorrect = function () {
         answerElement.classList.add('answer-incorrect');
-        setTimeout(function() {
+        setTimeout(function () {
           nextQuestion();
         }, 500);
-        
-      }
+      };
 
       if (key === currentQuestion.correct) {
         setTimeout(answerCorrect, 500);
+        correctCounter++;
       } else {
         setTimeout(answerIncorrect, 500);
       }
 
+      // Changes current score
+      currentScores.innerHTML = `Correct answers: ${correctCounter} of ${quizData.questions.length}`;
     });
   }
 
