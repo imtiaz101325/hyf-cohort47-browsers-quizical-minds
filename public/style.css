@@ -15,3 +15,32 @@
 ul {
   list-style: none;
 }
+
+.answers-list {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+}
+
+.answer-element {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: rgb(164, 164, 205);
+  margin: 5px auto;
+}
+
+.answer-selected {
+  background-color: rgb(124, 124, 152);
+}
+
+.answer-correct {
+  background-color: rgb(38, 131, 38);
+  color: white;
+}
+
+.answer-incorrect {
+  background-color: rgb(107, 43, 15);
+  color: white;
+}
