@@ -1,3 +1,10 @@
+:root {
+  --answer-color: rgb(164, 164, 205);
+  --answer-selected-color: rgb(124, 124, 152);
+  --answer-correct-color: rgb(38, 131, 38);
+  --answer-incorrect-color: rgb(107, 43, 15);
+}
+
 .centered {
   position: fixed;
   top: 50%;
@@ -15,6 +22,7 @@
 ul {
   list-style: none;
 }
+
 .answers-list {
   display: flex;
   flex-direction: column;
@@ -26,21 +34,21 @@ ul {
   text-align: center;
   border: 1px solid black;
   cursor: pointer;
-  background-color: rgb(164, 164, 205);
+  background-color: var(--answer-color);
   margin: 5px auto;
 }
 
 .answer-selected {
-  background-color: rgb(124, 124, 152);
+  background-color: var(--answer-selected-color);
 }
 
 .answer-correct {
-  background-color: rgb(38, 131, 38);
+  background-color: var(--answer-correct-color);
   color: white;
 }
 
 .answer-incorrect {
-  background-color: rgb(107, 43, 15);
+  background-color: var(--answer-incorrect-color);
   color: white;
 }
 
