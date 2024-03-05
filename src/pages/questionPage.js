@@ -26,11 +26,15 @@ export const initQuestionPage = () => {
     answerElement.classList.add('answer-element');
     answersListElement.appendChild(answerElement);
 
-    answerElement.addEventListener('click', function clickHandler () {
+    answerElement.addEventListener('click', function clickHandler() {
       // When you click the answer, previous selection loses selection color
       const answerElements = document.querySelectorAll('.answer-element');
       answerElements.forEach((answer) => {
-        answer.classList.remove('answer-selected', 'answer-correct', 'answer-incorrect');
+        answer.classList.remove(
+          'answer-selected',
+          'answer-correct',
+          'answer-incorrect'
+        );
       });
 
       // When you click the answer, it receives selection color
