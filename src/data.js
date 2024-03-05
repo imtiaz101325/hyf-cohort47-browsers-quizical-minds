@@ -57,7 +57,8 @@ export const quizData = {
     },
     // Add more questions here
     {
-      text: '	Which of the following laws is associated with the heating effect of electric current ?',
+      text:
+        '	Which of the following laws is associated with the heating effect of electric current ?',
       answers: {
         a: "Joule's law",
         b: "Ohm's law ",
@@ -78,12 +79,13 @@ export const quizData = {
       ],
     },
     {
-      text: 'Who demonstrated that objects of different masses would reach the ground together when dropped from the same height?',
+      text:
+        'Who demonstrated that objects of different masses would reach the ground together when dropped from the same height?',
       answers: {
-        a: "Isaac Newton",
-        b: "Archimedes ",
-        c: "Robert Boyle ",
-        d: "Galileo Galilei ",
+        a: 'Isaac Newton',
+        b: 'Archimedes ',
+        c: 'Robert Boyle ',
+        d: 'Galileo Galilei ',
       },
       correct: 'a',
       selected: null,
@@ -101,10 +103,10 @@ export const quizData = {
     {
       text: '	A body at rest can have ?',
       answers: {
-        a: "speed",
-        b: "velocity",
-        c: "momentum",
-        d: "Energy",
+        a: 'speed',
+        b: 'velocity',
+        c: 'momentum',
+        d: 'Energy',
       },
       correct: 'a',
       selected: null,
@@ -141,7 +143,8 @@ export const quizData = {
       ],
     },
     {
-      text: 'What is the ability of a metal to be drawn into thin wires called ?',
+      text:
+        'What is the ability of a metal to be drawn into thin wires called ?',
       answers: {
         a: 'Ductility',
         b: 'Sonorous ',
@@ -162,12 +165,13 @@ export const quizData = {
       ],
     },
     {
-      text: 'The sex of the children will be determined by what they inherit from the ?',
+      text:
+        'The sex of the children will be determined by what they inherit from the ?',
       answers: {
         a: 'nature',
         b: 'father',
         c: 'mother',
-        d: 'mother and father'
+        d: 'mother and father',
       },
       correct: 'a',
       selected: null,
@@ -209,7 +213,7 @@ export const quizData = {
         a: 'transpiration ',
         b: 'reduction ',
         c: 'oxidation',
-        d: 'corrosion '
+        d: 'corrosion ',
       },
       correct: 'a',
       selected: null,
