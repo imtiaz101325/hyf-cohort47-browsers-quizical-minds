@@ -26,7 +26,7 @@ export const initQuestionPage = () => {
     answerElement.classList.add('answer-element');
     answersListElement.appendChild(answerElement);
 
-    answerElement.addEventListener('click', function clickHandler() {
+    answerElement.addEventListener('click', function clickHandler(evt) {
       // When you click the answer, previous selection loses selection color
       const answerElements = document.querySelectorAll('.answer-element');
       answerElements.forEach((answer) => {
@@ -41,19 +41,21 @@ export const initQuestionPage = () => {
       answerElement.classList.add('answer-selected');
 
       // Selected answer receives a color depending on whether it's correct or not.
-      // Then user moves to the next question
+      // After this answers become inactive
+      const answerInactive = function () {
+        answerElements.forEach((answer) => {
+          answer.style.pointerEvents = 'none';
+        });
+      };
+
       const answerCorrect = function () {
         answerElement.classList.add('answer-correct');
-        setTimeout(function () {
-          nextQuestion();
-        }, 500);
+        answerInactive();
       };
 
       const answerIncorrect = function () {
         answerElement.classList.add('answer-incorrect');
-        setTimeout(function () {
-          nextQuestion();
-        }, 500);
+        answerInactive();
       };
 
       if (key === currentQuestion.correct) {
