@@ -6,6 +6,10 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { createScorePanel } from '../views/scorePanelView.js';
+
+// Counts how many answers are correct. Every right answer will increment this variable by 1
+let correctCounter = 0;
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -20,13 +24,17 @@ export const initQuestionPage = () => {
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   answersListElement.classList.add('answers-list');
 
+  // Append realtime score panel into DOM
+  const scorePanel = createScorePanel(correctCounter, quizData.questions.length);
+  userInterface.appendChild(scorePanel);
+
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     // Answers options look little bit better now
     answerElement.classList.add('answer-element');
     answersListElement.appendChild(answerElement);
 
-    answerElement.addEventListener('click', function clickHandler() {
+    answerElement.addEventListener('click', function clickHandler(evt) {
       // When you click the answer, previous selection loses selection color
       const answerElements = document.querySelectorAll('.answer-element');
       answerElements.forEach((answer) => {
@@ -41,24 +49,26 @@ export const initQuestionPage = () => {
       answerElement.classList.add('answer-selected');
 
       // Selected answer receives a color depending on whether it's correct or not.
-      // Then user moves to the next question
+      // After this answers become inactive
+      const answerInactive = function () {
+        answerElements.forEach((answer) => {
+          answer.style.pointerEvents = 'none';
+        });
+      };
+
       const answerCorrect = function () {
         answerElement.classList.add('answer-correct');
-        setTimeout(function () {
-          nextQuestion();
-        }, 500);
+        correctCounter++;
+        answerInactive();
       };
 
       const answerIncorrect = function () {
         answerElement.classList.add('answer-incorrect');
-        setTimeout(function () {
-          nextQuestion();
-        }, 500);
+        answerInactive();
       };
 
       if (key === currentQuestion.correct) {
         setTimeout(answerCorrect, 500);
-        correctCounter++;
       } else {
         setTimeout(answerIncorrect, 500);
       }
