@@ -25,7 +25,10 @@ export const initQuestionPage = () => {
   answersListElement.classList.add('answers-list');
 
   // Append realtime score panel into DOM
-  const scorePanel = createScorePanel(correctCounter, quizData.questions.length);
+  const scorePanel = createScorePanel(
+    correctCounter,
+    quizData.questions.length
+  );
   userInterface.appendChild(scorePanel);
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
