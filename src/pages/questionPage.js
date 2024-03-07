@@ -21,7 +21,7 @@ export const initQuestionPage = () => {
   answersListElement.classList.add('answers-list');
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-     // Create a button for each answer option
+    // Create a button for each answer option
     const answerButton = document.createElement('button');
     answerButton.textContent = answerText;
     answerButton.classList.add('answer-button');
@@ -38,27 +38,24 @@ export const initQuestionPage = () => {
         );
       });
 
-       // When you click the answer, it receives selection color
+      // When you click the answer, it receives selection color
       answerButton.classList.add('answer-selected');
 
       // Selected answer receives a color depending on whether it's correct or not.
       // Then user moves to the next question
       const answerCorrect = function () {
         answerButton.classList.add('answer-correct');
-        setTimeout(function () {
-        
-        }, 500);
+        setTimeout(function () {}, 500);
       };
 
-      
-     const answerIncorrect = function () {
+      const answerIncorrect = function () {
         answerButton.classList.add('answer-incorrect');
         // Highlight correct answer
-        const correctAnswerButton = document.querySelector(`[data-key="${currentQuestion.correct}"]`);
+        const correctAnswerButton = document.querySelector(
+          `[data-key="${currentQuestion.correct}"]`
+        );
         correctAnswerButton.classList.add('answer-correct');
-        setTimeout(function () {
-         
-        }, 500);
+        setTimeout(function () {}, 500);
       };
 
       if (key === currentQuestion.correct) {
