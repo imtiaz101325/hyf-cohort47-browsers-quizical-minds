@@ -6,6 +6,10 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { createScorePanel } from '../views/scorePanelView.js';
+
+// Counts how many answers are correct. Every right answer will increment this variable by 1
+let correctCounter = 0;
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -19,6 +23,13 @@ export const initQuestionPage = () => {
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   answersListElement.classList.add('answers-list');
+
+  // Append realtime score panel into DOM
+  const scorePanel = createScorePanel(
+    correctCounter,
+    quizData.questions.length
+  );
+  userInterface.appendChild(scorePanel);
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
@@ -50,6 +61,7 @@ export const initQuestionPage = () => {
 
       const answerCorrect = function () {
         answerElement.classList.add('answer-correct');
+        correctCounter++;
         answerInactive();
       };
 
@@ -60,7 +72,6 @@ export const initQuestionPage = () => {
 
       if (key === currentQuestion.correct) {
         setTimeout(answerCorrect, 500);
-        correctCounter++;
       } else {
         setTimeout(answerIncorrect, 500);
       }
