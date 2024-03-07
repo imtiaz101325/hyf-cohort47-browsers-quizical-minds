@@ -7,6 +7,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScorePanel } from '../views/scorePanelView.js';
+import { initFinalPage } from './finalPage.js';
 
 // Counts how many answers are correct. Every right answer will increment this variable by 1
 let correctCounter = 0;
@@ -78,9 +79,21 @@ export const initQuestionPage = () => {
     });
   }
 
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
+  // If this is the last question, after clicking "Next question" button a user will be moved to final page
+  // Otherwise to the next question
+  if (quizData.currentQuestionIndex === quizData.questions.length - 1) {
+    document
+      .getElementById(NEXT_QUESTION_BUTTON_ID)
+      .addEventListener('click', toFinalPage);
+  } else {
+    document
+      .getElementById(NEXT_QUESTION_BUTTON_ID)
+      .addEventListener('click', nextQuestion);
+  }
+};
+
+const toFinalPage = () => {
+  initFinalPage(correctCounter, quizData.questions.length);
 };
 
 const nextQuestion = () => {
