@@ -7,9 +7,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScorePanel } from '../views/scorePanelView.js';
-
-// Counts how many answers are correct. Every right answer will increment this variable by 1
-let correctCounter = 0;
+import { initFinalPage } from './finalPage.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -26,7 +24,7 @@ export const initQuestionPage = () => {
 
   // Append realtime score panel into DOM
   const scorePanel = createScorePanel(
-    correctCounter,
+    quizData.correctCounter,
     quizData.questions.length
   );
   userInterface.appendChild(scorePanel);
@@ -37,7 +35,7 @@ export const initQuestionPage = () => {
     answerElement.classList.add('answer-element');
     answersListElement.appendChild(answerElement);
 
-    answerElement.addEventListener('click', function clickHandler(evt) {
+    answerElement.addEventListener('click', function clickHandler() {
       // When you click the answer, previous selection loses selection color
       const answerElements = document.querySelectorAll('.answer-element');
       answerElements.forEach((answer) => {
@@ -61,7 +59,7 @@ export const initQuestionPage = () => {
 
       const answerCorrect = function () {
         answerElement.classList.add('answer-correct');
-        correctCounter++;
+        quizData.correctCounter++;
         answerInactive();
       };
 
@@ -78,9 +76,21 @@ export const initQuestionPage = () => {
     });
   }
 
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
+  // If this is the last question, after clicking "Next question" button a user will be moved to final page
+  // Otherwise to the next question
+  if (quizData.currentQuestionIndex === quizData.questions.length - 1) {
+    document
+      .getElementById(NEXT_QUESTION_BUTTON_ID)
+      .addEventListener('click', toFinalPage);
+  } else {
+    document
+      .getElementById(NEXT_QUESTION_BUTTON_ID)
+      .addEventListener('click', nextQuestion);
+  }
+};
+
+const toFinalPage = () => {
+  initFinalPage(quizData.correctCounter, quizData.questions.length);
 };
 
 const nextQuestion = () => {
