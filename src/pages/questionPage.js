@@ -21,48 +21,57 @@ export const initQuestionPage = () => {
   answersListElement.classList.add('answers-list');
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-    const answerElement = createAnswerElement(key, answerText);
-    // Answers options look little bit better now
-    answerElement.classList.add('answer-element');
-    answersListElement.appendChild(answerElement);
+     // Create a button for each answer option
+    const answerButton = document.createElement('button');
+    answerButton.textContent = answerText;
+    answerButton.classList.add('answer-button');
+    answersListElement.appendChild(answerButton);
 
-    answerElement.addEventListener('click', function clickHandler() {
+    answerButton.addEventListener('click', function clickHandler() {
       // When you click the answer, previous selection loses selection color
-      const answerElements = document.querySelectorAll('.answer-element');
-      answerElements.forEach((answer) => {
-        answer.classList.remove(
+      const answerButtons = document.querySelectorAll('.answer-button');
+      answerButtons.forEach((button) => {
+        button.classList.remove(
           'answer-selected',
           'answer-correct',
           'answer-incorrect'
         );
       });
 
-      // When you click the answer, it receives selection color
-      answerElement.classList.add('answer-selected');
+       // When you click the answer, it receives selection color
+      answerButton.classList.add('answer-selected');
 
       // Selected answer receives a color depending on whether it's correct or not.
       // Then user moves to the next question
       const answerCorrect = function () {
-        answerElement.classList.add('answer-correct');
+        answerButton.classList.add('answer-correct');
         setTimeout(function () {
-          nextQuestion();
+        
         }, 500);
       };
 
-      const answerIncorrect = function () {
-        answerElement.classList.add('answer-incorrect');
+      
+     const answerIncorrect = function () {
+        answerButton.classList.add('answer-incorrect');
+        // Highlight correct answer
+        const correctAnswerButton = document.querySelector(`[data-key="${currentQuestion.correct}"]`);
+        correctAnswerButton.classList.add('answer-correct');
         setTimeout(function () {
-          nextQuestion();
+         
         }, 500);
       };
 
       if (key === currentQuestion.correct) {
-        setTimeout(answerCorrect, 500);
-        correctCounter++;
+        answerCorrect();
       } else {
-        setTimeout(answerIncorrect, 500);
+        answerIncorrect();
       }
     });
+
+    // Add data-key attribute to identify correct answers
+    if (key === currentQuestion.correct) {
+      answerButton.setAttribute('data-key', key);
+    }
   }
 
   document
