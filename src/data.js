@@ -17,112 +17,118 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: 'What are the different ways to declare a JS variable?',
+      text: 'What is the capital of the Netherlands?',
       answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
+        a: 'Amsterdam',
+        b: 'Rotterdam',
+        c: 'The Hague',
+        d: 'Utrecht',
+      },
+      correct: 'a',
+      selected: null,
+    },
+    {
+      text:
+        'Which Dutch city is famous for its canals, historic houses, and vibrant cultural scene?',
+      answers: {
+        a: 'Rotterdam',
+        b: 'Utrecht',
+        c: 'Amsterdam',
+        d: 'The Hague',
       },
       correct: 'c',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
     },
     {
-      text: 'What does `typeof` do?',
+      text: 'Who is the king of the Netherlands?',
       answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
+        a: 'Willem-Alexander',
+        b: 'Beatrix',
+        c: 'Juliana',
+        d: 'Wilhelmina',
+      },
+      correct: 'a',
+      selected: null,
+    },
+    {
+      text:
+        "Which Dutch artist painted 'The Night Watch,' one of the most famous works in the Rijksmuseum in Amsterdam?",
+      answers: {
+        a: 'Vincent van Gogh',
+        b: 'Rembrandt',
+        c: 'Piet Mondrian',
+        d: 'Johannes Vermeer',
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
-    },
-    // Add more questions here
-    {
-      text:
-        '	Which of the following laws is associated with the heating effect of electric current ?',
-      answers: {
-        a: "Joule's law",
-        b: "Ohm's law ",
-        c: "Faraday's law ",
-        d: "Newton's law ",
-      },
-      correct: 'd',
-      selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
     },
     {
-      text:
-        'Who demonstrated that objects of different masses would reach the ground together when dropped from the same height?',
+      text: 'What is the currency of the Netherlands?',
       answers: {
-        a: 'Isaac Newton',
-        b: 'Archimedes ',
-        c: 'Robert Boyle ',
-        d: 'Galileo Galilei ',
+        a: 'Euro',
+        b: 'Guilder',
+        c: 'Franc',
+        d: 'Mark',
       },
       correct: 'a',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
     },
     {
-      text: '	A body at rest can have ?',
+      text: 'What is the national symbol of the Netherlands?',
       answers: {
-        a: 'speed',
-        b: 'velocity',
-        c: 'momentum',
-        d: 'Energy',
+        a: 'Tulip',
+        b: 'Wooden shoe (klomp)',
+        c: 'Windmill',
+        d: 'Lion',
+      },
+      correct: 'c',
+      selected: null,
+    },
+    {
+      text:
+        'Which Dutch scientist is famous for his contributions to microbiology, including the discovery of bacteria and microscopy techniques?',
+      answers: {
+        a: 'Antonie van Leeuwenhoek',
+        b: 'Christiaan Huygens',
+        c: 'René Descartes',
+        d: 'Johannes Kepler',
       },
       correct: 'a',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
+    },
+    {
+      text: 'The Dutch Royal Family belongs to which dynasty?',
+      answers: {
+        a: 'Bourbon',
+        b: 'Habsburg',
+        c: 'Orange-Nassau',
+        d: 'Tudor',
+      },
+      correct: 'c',
+      selected: null,
+    },
+    {
+      text:
+        'What is the name of the Dutch parliamentary body responsible for making and passing laws?',
+      answers: {
+        a: 'Royal Council',
+        b: 'Parliament of the Netherlands',
+        c: 'States General',
+        d: 'Dutch Congress',
+      },
+      correct: 'c',
+      selected: null,
+    },
+    {
+      text: 'What are the colors of the Dutch flag??',
+      answers: {
+        a: 'Blue, white, red',
+        b: ' Red, white, blue',
+        c: 'Green, white, orange',
+        d: 'Orange, blue, yellow',
+      },
+      correct: 'b',
+      selected: null,
     },
   ],
 };

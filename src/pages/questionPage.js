@@ -32,12 +32,12 @@ export const initQuestionPage = () => {
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     // Answers options look little bit better now
-    answerElement.classList.add('answer-element');
+    answerElement.classList.add('answer-button');
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', function clickHandler() {
       // When you click the answer, previous selection loses selection color
-      const answerElements = document.querySelectorAll('.answer-element');
+      const answerElements = document.querySelectorAll('.answer-button');
       answerElements.forEach((answer) => {
         answer.classList.remove(
           'answer-selected',
@@ -66,14 +66,25 @@ export const initQuestionPage = () => {
       const answerIncorrect = function () {
         answerElement.classList.add('answer-incorrect');
         answerInactive();
+
+        // Highlight correct answer
+        const correctAnswerButton = document.querySelector(
+          `[data-key="${currentQuestion.correct}"]`
+        );
+        correctAnswerButton.classList.add('answer-correct');
       };
 
       if (key === currentQuestion.correct) {
-        setTimeout(answerCorrect, 500);
+        answerCorrect();
       } else {
-        setTimeout(answerIncorrect, 500);
+        answerIncorrect();
       }
     });
+
+    // Add data-key attribute to identify correct answers
+    if (key === currentQuestion.correct) {
+      answerElement.setAttribute('data-key', key);
+    }
   }
 
   // If this is the last question, after clicking "Next question" button a user will be moved to final page
