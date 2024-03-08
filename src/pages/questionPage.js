@@ -1,12 +1,14 @@
 import {
   ANSWERS_LIST_ID,
-  ANSWER_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { createScorePanel } from '../views/scorePanelView.js';
+import { initFinalPage } from './finalPage.js';
+
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -20,17 +22,24 @@ export const initQuestionPage = () => {
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   answersListElement.classList.add('answers-list');
 
-  for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-    const answerButton = document.createElement(ANSWER_BUTTON_ID);
-    answerButton.textContent = answerText;
-    answerButton.classList.add('answer-button');
-    answersListElement.appendChild(answerButton);
+  // Append realtime score panel into DOM
+  const scorePanel = createScorePanel(
+    quizData.correctCounter,
+    quizData.questions.length
+  );
+  userInterface.appendChild(scorePanel);
 
-    answerButton.addEventListener('click', function clickHandler() {
+  for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
+    const answerElement = createAnswerElement(key, answerText);
+    // Answers options look little bit better now
+    answerElement.classList.add('answer-button');
+    answersListElement.appendChild(answerElement);
+
+    answerElement.addEventListener('click', function clickHandler() {
       // When you click the answer, previous selection loses selection color
-      const answerButtons = document.querySelectorAll('.answer-button');
-      answerButtons.forEach((button) => {
-        button.classList.remove(
+      const answerElements = document.querySelectorAll('.answer-button');
+      answerElements.forEach((answer) => {
+        answer.classList.remove(
           'answer-selected',
           'answer-correct',
           'answer-incorrect'
@@ -38,16 +47,26 @@ export const initQuestionPage = () => {
       });
 
       // When you click the answer, it receives selection color
-      answerButton.classList.add('answer-selected');
+      answerElement.classList.add('answer-selected');
 
       // Selected answer receives a color depending on whether it's correct or not.
-      // Then user moves to the next question
+      // After this answers become inactive
+      const answerInactive = function () {
+        answerElements.forEach((answer) => {
+          answer.style.pointerEvents = 'none';
+        });
+      };
+
       const answerCorrect = function () {
-        answerButton.classList.add('answer-correct');
+        answerElement.classList.add('answer-correct');
+        quizData.correctCounter++;
+        answerInactive();
       };
 
       const answerIncorrect = function () {
-        answerButton.classList.add('answer-incorrect');
+        answerElement.classList.add('answer-incorrect');
+        answerInactive();
+
         // Highlight correct answer
         const correctAnswerButton = document.querySelector(
           `[data-key="${currentQuestion.correct}"]`
@@ -64,13 +83,25 @@ export const initQuestionPage = () => {
 
     // Add data-key attribute to identify correct answers
     if (key === currentQuestion.correct) {
-      answerButton.setAttribute('data-key', key);
+      answerElement.setAttribute('data-key', key);
     }
   }
 
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
+  // If this is the last question, after clicking "Next question" button a user will be moved to final page
+  // Otherwise to the next question
+  if (quizData.currentQuestionIndex === quizData.questions.length - 1) {
+    document
+      .getElementById(NEXT_QUESTION_BUTTON_ID)
+      .addEventListener('click', toFinalPage);
+  } else {
+    document
+      .getElementById(NEXT_QUESTION_BUTTON_ID)
+      .addEventListener('click', nextQuestion);
+  }
+};
+
+const toFinalPage = () => {
+  initFinalPage(quizData.correctCounter, quizData.questions.length);
 };
 
 const nextQuestion = () => {

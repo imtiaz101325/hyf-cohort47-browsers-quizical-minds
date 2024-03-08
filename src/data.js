@@ -10,6 +10,9 @@
 */
 
 export const quizData = {
+  // Counts how many answers are correct. Every right answer will increment this variable by 1
+  correctCounter: 0,
+
   currentQuestionIndex: 0,
   // the questions in the quiz
   questions: [
