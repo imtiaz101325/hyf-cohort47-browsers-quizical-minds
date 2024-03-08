@@ -3,7 +3,6 @@ import {
   ANSWER_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
- 
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';

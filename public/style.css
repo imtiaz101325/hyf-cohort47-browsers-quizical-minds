@@ -9,12 +9,9 @@
   --correct-answer-text-color: #689f38;
   --incorrect-answer-background: #ffdde0;
   --incorrect-answer-text-color: #d32f2f;
- 
-  
 }
 body {
   background-image: url('background.jpg');
-  
 }
 
 .centered {
@@ -36,14 +33,14 @@ ul {
 }
 
 #user-interface {
-display: flex;
-flex-direction: column;
-background-color: var(--secondary-color);
-width: 30%;
-max-width: 600;
-margin: 100px auto 0;
-border-radius: 10px;
-padding: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  width: 30%;
+  max-width: 600;
+  margin: 100px auto 0;
+  border-radius: 10px;
+  padding: 30px;
 }
 
 .answer-button {
@@ -58,11 +55,11 @@ padding: 30px;
   border-radius: 0.3em;
   cursor: pointer;
   transition: all 0.3s;
-  display: block; 
+  display: block;
   color: var(--button-text-color);
 }
 .answer-button:disabled {
-  color:var(--button-text-color);
+  color: var(--button-text-color);
   cursor: not-allowed;
 }
 
@@ -78,17 +75,17 @@ padding: 30px;
   cursor: pointer;
   display: block;
   animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
   }
-  
-  @keyframes bounce {
-    0% {
-      transform: translateY(0);
-    }
-  
-    100% {
-      transform: translateY(-10px);
-    }
+
+  100% {
+    transform: translateY(-10px);
   }
+}
 
 .answer-selected {
   background-color: var(--answer-selected-background-color);
@@ -97,85 +94,85 @@ padding: 30px;
 .answer-correct {
   background-color: var(--correct-answer-background);
   color: var(--correct-answer-text-color);
-  border-color:var(--correct-answer-text-color);
+  border-color: var(--correct-answer-text-color);
 }
 
 .answer-incorrect {
   background-color: var(--incorrect-answer-background);
-  color:var(--answer-incorrect-color);
+  color: var(--answer-incorrect-color);
 }
 
 .current-scores {
   margin-top: 20px;
 }
 .roboto-thin {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-style: normal;
 }
 
 .roboto-light {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
 .roboto-regular {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .roboto-medium {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .roboto-bold {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .roboto-black {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-style: normal;
 }
 
 .roboto-thin-italic {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-style: italic;
 }
 
 .roboto-light-italic {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-style: italic;
 }
 
 .roboto-regular-italic {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
 .roboto-medium-italic {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-style: italic;
 }
 
 .roboto-bold-italic {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 .roboto-black-italic {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-style: italic;
 }
