@@ -1,21 +1,26 @@
 import { quizData } from './data.js';
 import { initWelcomePage } from './pages/welcomePage.js';
 import { initQuestionPage } from './pages/questionPage.js';
+import { LOCAL_STORAGE_NAME } from './constants.js';
+
+const SAVED_DATA = JSON.parse(localStorage.getItem(LOCAL_STORAGE_NAME));
 
 const loadApp = () => {
-  // quizData.currentQuestionIndex = 0;
-  if (localStorage.questions === undefined || JSON.parse(localStorage.questions).length >= quizData.questions.length) {
-    quizData.currentQuestionIndex = 0;
-  } else {
-      JSON.parse(localStorage.questions).forEach(question => {
-        quizData.questionsTracker.push(question);
-      });
-      quizData.score = JSON.parse(localStorage.questions).filter(question => question.isCorrect).length;
-      quizData.currentQuestionIndex = JSON.parse(localStorage.questions).length;
-      return initQuestionPage();
-  }
-
-  return initWelcomePage();
+  currentState(SAVED_DATA);
 };
+
+const currentState = (SAVED_DATA) => {
+  if (SAVED_DATA === null || SAVED_DATA.length >= quizData.questions.length) {
+    quizData.currentQuestionIndex = 0;
+    return initWelcomePage();
+  } else {
+    SAVED_DATA.forEach(question => {
+      quizData.questionsTracker.push(question);
+    });
+    quizData.score = SAVED_DATA.filter(question => question.isCorrect).length;
+    quizData.currentQuestionIndex = SAVED_DATA.length;
+    return initQuestionPage();
+  }
+}
 
 window.addEventListener('load', loadApp);

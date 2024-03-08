@@ -10,6 +10,7 @@
 */
 
 export const quizData = {
+  totalPoints: 15,
   currentQuestionIndex: 0,
   score: 0,
   questionsTracker: [],
@@ -21,6 +22,7 @@ export const quizData = {
         a: 'constant, let, variable',
         b: 'var, const, let, function',
         c: 'var, let, const',
+        d: 'xyz, xyz, xyz',
       },
       correct: 'c',
       selected: null,
