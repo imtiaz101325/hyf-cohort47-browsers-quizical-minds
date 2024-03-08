@@ -1,12 +1,13 @@
 import {
   ANSWERS_LIST_ID,
+  ANSWER_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
+ 
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
-
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -21,8 +22,7 @@ export const initQuestionPage = () => {
   answersListElement.classList.add('answers-list');
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-    // Create a button for each answer option
-    const answerButton = document.createElement('button');
+    const answerButton = document.createElement(ANSWER_BUTTON_ID);
     answerButton.textContent = answerText;
     answerButton.classList.add('answer-button');
     answersListElement.appendChild(answerButton);
@@ -45,7 +45,6 @@ export const initQuestionPage = () => {
       // Then user moves to the next question
       const answerCorrect = function () {
         answerButton.classList.add('answer-correct');
-        setTimeout(function () {}, 500);
       };
 
       const answerIncorrect = function () {
@@ -55,7 +54,6 @@ export const initQuestionPage = () => {
           `[data-key="${currentQuestion.correct}"]`
         );
         correctAnswerButton.classList.add('answer-correct');
-        setTimeout(function () {}, 500);
       };
 
       if (key === currentQuestion.correct) {

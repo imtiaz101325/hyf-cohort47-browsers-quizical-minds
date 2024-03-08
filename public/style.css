@@ -1,5 +1,20 @@
+:root {
+  --primary-color: #001e4d;
+  --secondary-color: #ffffff;
+  --button-background: transparent;
+  --button-border: 1px solid #c0bfd2;
+  --button-text-color: #000000;
+  --answer-selected-background-color: rgb(124, 124, 152);
+  --correct-answer-background: #e7f6d5;
+  --correct-answer-text-color: #689f38;
+  --incorrect-answer-background: #ffdde0;
+  --incorrect-answer-text-color: #d32f2f;
+ 
+  
+}
 body {
   background-image: url('background.jpg');
+  
 }
 
 .centered {
@@ -21,74 +36,146 @@ ul {
 }
 
 #user-interface {
-  background-color: #ffffff;
-  width: 30%;
-  max-width: 600;
-  margin: 100px auto 0;
-  border-radius: 10px;
-  padding: 30px;
+display: flex;
+flex-direction: column;
+background-color: var(--secondary-color);
+width: 30%;
+max-width: 600;
+margin: 100px auto 0;
+border-radius: 10px;
+padding: 30px;
 }
 
 .answer-button {
   font-size: 0.9em;
-  width: 100%;
+  width: 90%;
   padding: 1em;
   margin: 0.3em 0;
   text-align: left;
   outline: none;
-  background: transparent;
-  border: 1px solid #c0bfd2;
+  background: var(--button-background);
+  border: var(--button-border);
   border-radius: 0.3em;
   cursor: pointer;
-  transition: all 0.3ms;
+  transition: all 0.3s;
+  display: block; 
+  color: var(--button-text-color);
 }
 .answer-button:disabled {
-  color: #000000;
+  color:var(--button-text-color);
   cursor: not-allowed;
 }
-.question {
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-}
+
 #next-question-button {
-  background: #001e4d;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--secondary-color);
   font-weight: 500;
-  width: 150px;
+  width: auto;
   border: 0;
   padding: 10px;
-  margin: 20px auto 0;
+  margin: 3em auto;
   border-radius: 4px;
   cursor: pointer;
   display: block;
   animation: bounce 0.5s ease infinite alternate;
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+  
+    100% {
+      transform: translateY(-10px);
+    }
   }
 
-  100% {
-    transform: translateY(-10px);
-  }
-}
 .answer-selected {
-  background-color: rgb(124, 124, 152);
+  background-color: var(--answer-selected-background-color);
 }
 
 .answer-correct {
-  background-color: #e7f6d5;
-  color: #689f38;
-  border-color: #689f38;
+  background-color: var(--correct-answer-background);
+  color: var(--correct-answer-text-color);
+  border-color:var(--correct-answer-text-color);
 }
 
 .answer-incorrect {
-  background-color: #ffdde0;
-  color: #d32f2f;
-  border-color: #d32f2f;
+  background-color: var(--incorrect-answer-background);
+  color:var(--answer-incorrect-color);
 }
 
 .current-scores {
   margin-top: 20px;
+}
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
