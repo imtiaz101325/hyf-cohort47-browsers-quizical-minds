@@ -10,8 +10,18 @@
   --incorrect-answer-background: #ffdde0;
   --incorrect-answer-text-color: #d32f2f;
 }
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 .centered {
@@ -37,8 +47,7 @@ ul {
   flex-direction: column;
   background-color: var(--secondary-color);
   width: 30%;
-  max-width: 600;
-  margin: 100px auto 0;
+  margin: 0 auto;
   border-radius: 10px;
   padding: 30px;
 }
@@ -63,7 +72,7 @@ ul {
   cursor: not-allowed;
 }
 
-#next-question-button {
+#next-question-button, #start-quiz-button, #restart-quiz-button {
   background: var(--primary-color);
   color: var(--secondary-color);
   font-weight: 500;
@@ -175,4 +184,25 @@ ul {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-style: italic;
+}
+
+
+/* When the browser screen is 800px or less */
+@media screen and (max-width: 800px) {
+  #user-interface {
+    width: 80%;
+  }
+  .answers-list {
+    padding: 0;
+  }
+}
+
+/* When the browser screen is 560px or less */
+@media screen and (max-width: 560px) {
+  #user-interface {
+    width: 80%;
+  }
+  .answers-list {
+    padding: 0;
+  }
 }
