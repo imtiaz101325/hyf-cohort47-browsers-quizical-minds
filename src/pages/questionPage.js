@@ -8,6 +8,7 @@ import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScorePanel } from '../views/scorePanelView.js';
 import { initFinalPage } from './finalPage.js';
+import { LOCAL_STORAGE_NAME } from '../constants.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -45,6 +46,9 @@ export const initQuestionPage = () => {
           'answer-incorrect'
         );
       });
+
+      // push the questions to localStorage to maintain the state even after refreshing (reloading) the page.
+      pushToLocalStorage(currentQuestion, key);
 
       // When you click the answer, it receives selection color
       answerElement.classList.add('answer-selected');
@@ -104,8 +108,27 @@ const toFinalPage = () => {
   initFinalPage(quizData.correctCounter, quizData.questions.length);
 };
 
+const pushToLocalStorage = (question = null, answer = null) => {
+  quizData.questionsTracker.push({
+    question: question.text,
+    answer: answer,
+    isCorrect: answer === question.correct ? true : false,
+  });
+
+  localStorage.setItem(
+    LOCAL_STORAGE_NAME,
+    JSON.stringify(quizData.questionsTracker)
+  );
+};
+
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  if (quizData.currentQuestionIndex !== quizData.questionsTracker.length) {
+    pushToLocalStorage(
+      quizData.questions[quizData.currentQuestionIndex - 1],
+      null
+    );
+  }
 
   initQuestionPage();
 };
