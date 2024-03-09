@@ -129,6 +129,6 @@ const nextQuestion = () => {
       null
     );
   }
-  
+
   initQuestionPage();
 };
