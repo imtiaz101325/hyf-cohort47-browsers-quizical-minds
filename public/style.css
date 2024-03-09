@@ -1,20 +1,33 @@
 :root {
-  --primary-color: #001e4d;
-  --secondary-color: #ffffff;
-  --button-background: transparent;
-  --button-border: 1px solid #c0bfd2;
-  --button-text-color: #000000;
-  --answer-selected-background-color: rgb(124, 124, 152);
-  --correct-answer-background: #e7f6d5;
-  --correct-answer-text-color: #689f38;
-  --incorrect-answer-background: #ffdde0;
-  --incorrect-answer-text-color: #d32f2f;
+  
 }
+
+* {
+  font-family: "Comic Sans", sans-serif;
+  box-sizing: border-box;
+}
+
 body {
-  background-image: url('background.jpg');
+  background-color: orange;
 }
 
 .centered {
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  
+  min-width: 350px;
+  max-width: 450px;
+
+  
+  min-height: 20%;
+  
+  border: 1px black solid;
+  border-radius: 10px;
+
+  padding: 20px;
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -22,157 +35,82 @@ body {
   text-align: center;
 }
 
-.scrollable {
-  height: auto;
-  max-height: 80vh;
-  overflow: auto;
+.centered h3 {
+  padding: 2px;
 }
 
-ul {
-  list-style: none;
+.question-block {
+  border: 3px black solid;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+
 }
 
-#user-interface {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--secondary-color);
-  width: 30%;
-  max-width: 600;
-  margin: 100px auto 0;
-  border-radius: 10px;
-  padding: 30px;
+.answers-list {
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  gap: 5px;
 }
 
 .answer-button {
-  font-size: 0.9em;
-  width: 90%;
+  display: block;
+
   padding: 1em;
-  margin: 0.3em 0;
-  text-align: left;
-  outline: none;
-  background: var(--button-background);
-  border: var(--button-border);
-  border-radius: 0.3em;
+
+  font-size: 0.9em;
+  
+  text-align: center;
+  background: white;
+  border: 2px rgb(16, 16, 177) solid;
+  border-radius: 20px;
+  
   cursor: pointer;
   transition: all 0.3s;
-  display: block;
-  color: var(--button-text-color);
-}
-.answer-button:disabled {
-  color: var(--button-text-color);
-  cursor: not-allowed;
+  
+  color: black;
 }
 
-#next-question-button {
-  background: var(--primary-color);
-  color: var(--secondary-color);
-  font-weight: 500;
-  width: auto;
-  border: 0;
-  padding: 10px;
-  margin: 3em auto;
-  border-radius: 4px;
-  cursor: pointer;
-  display: block;
-  animation: bounce 0.5s ease infinite alternate;
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-10px);
-  }
-}
-
-.answer-selected {
-  background-color: var(--answer-selected-background-color);
+.answer-button:hover {
+  background-color: black;
+  color: white;
 }
 
 .answer-correct {
-  background-color: var(--correct-answer-background);
-  color: var(--correct-answer-text-color);
-  border-color: var(--correct-answer-text-color);
+  background-color: green;
+  color: white;
 }
 
 .answer-incorrect {
-  background-color: var(--incorrect-answer-background);
-  color: var(--answer-incorrect-color);
+  background-color: rgb(209, 129, 129);
+  color: white;
 }
 
-.current-scores {
-  margin-top: 20px;
-}
-.roboto-thin {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  font-style: normal;
+#next-question-button, #start-quiz-button {
+  display: block;
+
+  background-color: rgb(229, 226, 226);
+  border: 2px black solid;
+  border-radius: 10px;
+
+  color: black;
+  font-weight: bold;
+
+  width: auto;
+  
+  padding: 5px;
+  margin: 3em auto;
+  
+  cursor: pointer;
 }
 
-.roboto-light {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
+.score-panel {
+  background-color: rgb(67, 67, 69);
+  border-radius: 10px;
+  color: white;
 
-.roboto-regular {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.roboto-medium {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.roboto-bold {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.roboto-black {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.roboto-thin-italic {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.roboto-light-italic {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.roboto-regular-italic {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.roboto-medium-italic {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.roboto-bold-italic {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.roboto-black-italic {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-style: italic;
+  padding: 5px;
 }
