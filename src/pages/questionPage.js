@@ -17,7 +17,11 @@ export const initQuestionPage = () => {
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const questionElement = createQuestionElement(currentQuestion.text, quizData.currentQuestionIndex, quizData.score);
+  const questionElement = createQuestionElement(
+    currentQuestion.text,
+    quizData.currentQuestionIndex,
+    quizData.score
+  );
 
   userInterface.appendChild(questionElement);
 
@@ -38,10 +42,10 @@ export const initQuestionPage = () => {
         answer.classList.remove(
           'answer-selected',
           'answer-correct',
-          'answer-incorrect',
+          'answer-incorrect'
         );
       });
-      
+
       // push the questions to localStorage to maintain the state even after refreshing (reloading) the page.
       pushToLocalStorage(currentQuestion, key);
 
@@ -64,7 +68,7 @@ export const initQuestionPage = () => {
 
       const answerIncorrect = function () {
         answerElement.classList.add('answer-incorrect-value');
-        answerElement.firstElementChild.classList.add('answer-incorrect-key')
+        answerElement.firstElementChild.classList.add('answer-incorrect-key');
         answerInactive();
       };
 
@@ -74,7 +78,6 @@ export const initQuestionPage = () => {
         answerIncorrect();
       }
     });
-
   }
 
   document
@@ -90,16 +93,22 @@ const pushToLocalStorage = (question = null, answer = null) => {
   quizData.questionsTracker.push({
     question: question.text,
     answer: answer,
-    isCorrect: answer === question.correct ? true : false
+    isCorrect: answer === question.correct ? true : false,
   });
-  
-  localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(quizData.questionsTracker));
-}
+
+  localStorage.setItem(
+    LOCAL_STORAGE_NAME,
+    JSON.stringify(quizData.questionsTracker)
+  );
+};
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   if (quizData.currentQuestionIndex !== quizData.questionsTracker.length) {
-    pushToLocalStorage(quizData.questions[quizData.currentQuestionIndex-1], null);
+    pushToLocalStorage(
+      quizData.questions[quizData.currentQuestionIndex - 1],
+      null
+    );
   }
   if (quizData.currentQuestionIndex === quizData.questions.length) {
     showResultPage();

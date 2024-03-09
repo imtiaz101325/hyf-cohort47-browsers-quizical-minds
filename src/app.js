@@ -14,13 +14,13 @@ const currentState = (SAVED_DATA) => {
     quizData.currentQuestionIndex = 0;
     return initWelcomePage();
   } else {
-    SAVED_DATA.forEach(question => {
+    SAVED_DATA.forEach((question) => {
       quizData.questionsTracker.push(question);
     });
-    quizData.score = SAVED_DATA.filter(question => question.isCorrect).length;
+    quizData.score = SAVED_DATA.filter((question) => question.isCorrect).length;
     quizData.currentQuestionIndex = SAVED_DATA.length;
     return initQuestionPage();
   }
-}
+};
 
 window.addEventListener('load', loadApp);

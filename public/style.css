@@ -4,13 +4,13 @@
   --answer-correct-light: #dcf3dc;
   --answer-incorrect-light: #fadfdf;
 
-  --primary-color: #326C4F;
+  --primary-color: #326c4f;
   --light-primary-color: #d4f6e5;
-  --secondary-color: #FF7600;
-  --light-secondary-color: #FFECDC;
-  --blue-color: #21468B;
-  --light-blue-color: #E6EEFF;
-  --gray-color: #B8B8B8;
+  --secondary-color: #ff7600;
+  --light-secondary-color: #ffecdc;
+  --blue-color: #21468b;
+  --light-blue-color: #e6eeff;
+  --gray-color: #b8b8b8;
   --light-gray-color: #f0f2f4;
   --light-white-color: #fbfbfb;
 }
@@ -32,11 +32,11 @@
   align-items: center;
   padding: 50px;
   margin: 100px 0;
-  background: linear-gradient(rgba(251,251,251,1), rgba(251,251,251,0.8));
+  background: linear-gradient(rgba(251, 251, 251, 1), rgba(251, 251, 251, 0.8));
   border-radius: 8px;
 }
 
-.results-page{ 
+.results-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +44,7 @@
   font-size: 24px;
   padding: 50px;
   margin: 100px 0;
-  background: linear-gradient(rgba(251,251,251,1), rgba(251,251,251,0.8));
+  background: linear-gradient(rgba(251, 251, 251, 1), rgba(251, 251, 251, 0.8));
   border-radius: 8px;
 }
 
@@ -132,8 +132,8 @@
   color: var(--light-white-color);
 }
 
-
-#next-question-button i, #restart-quiz-button i {
+#next-question-button i,
+#restart-quiz-button i {
   padding-right: 6px;
 }
 
@@ -170,7 +170,7 @@ ul {
   padding: 32px;
 }
 
-#question-text h2{
+#question-text h2 {
   text-align: center;
 }
 
@@ -242,7 +242,6 @@ ul {
   margin-top: 20px;
 }
 
-
 .header-panel {
   display: flex;
   justify-content: space-between;
@@ -261,14 +260,14 @@ ul {
   display: none;
 }
 
-
 /* When the browser screen is 800px or less */
 @media screen and (max-width: 800px) {
   .welcome-title h1 {
     font-size: 24px;
   }
 
-  #question-text h2, .results-page{
+  #question-text h2,
+  .results-page {
     font-size: 18px;
     word-break: break-word;
   }
@@ -286,13 +285,15 @@ ul {
     font-size: 16px;
   }
 
-  #restart-quiz-button, #next-question-button {
+  #restart-quiz-button,
+  #next-question-button {
     padding: 8px 18px;
     border-radius: 6px;
     font-size: 12px;
   }
 
-  .question-counter, .correct-answers-counter {
+  .question-counter,
+  .correct-answers-counter {
     font-size: 14px;
   }
 

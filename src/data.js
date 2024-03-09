@@ -54,8 +54,7 @@ export const quizData = {
         },
         {
           text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
         },
       ],
     },
@@ -76,8 +75,7 @@ export const quizData = {
         },
         {
           text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
         },
       ],
     },
@@ -98,8 +96,7 @@ export const quizData = {
         },
         {
           text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
         },
       ],
     },
@@ -120,8 +117,7 @@ export const quizData = {
         },
         {
           text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
         },
       ],
     },
@@ -142,8 +138,7 @@ export const quizData = {
         },
         {
           text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
         },
       ],
     },
@@ -164,15 +159,13 @@ export const quizData = {
         },
         {
           text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
         },
       ],
     },
     // Add more questions here
     {
-      text:
-        '	Which of the following laws is associated with the heating effect of electric current ?',
+      text: '	Which of the following laws is associated with the heating effect of electric current ?',
       answers: {
         a: "Joule's law",
         b: "Ohm's law ",
@@ -193,8 +186,7 @@ export const quizData = {
       ],
     },
     {
-      text:
-        'Who demonstrated that objects of different masses would reach the ground together when dropped from the same height?',
+      text: 'Who demonstrated that objects of different masses would reach the ground together when dropped from the same height?',
       answers: {
         a: 'Isaac Newton',
         b: 'Archimedes ',
@@ -257,8 +249,7 @@ export const quizData = {
       ],
     },
     {
-      text:
-        'What is the ability of a metal to be drawn into thin wires called ?',
+      text: 'What is the ability of a metal to be drawn into thin wires called ?',
       answers: {
         a: 'Ductility',
         b: 'Sonorous ',
@@ -279,8 +270,7 @@ export const quizData = {
       ],
     },
     {
-      text:
-        'The sex of the children will be determined by what they inherit from the ?',
+      text: 'The sex of the children will be determined by what they inherit from the ?',
       answers: {
         a: 'nature',
         b: 'father',
