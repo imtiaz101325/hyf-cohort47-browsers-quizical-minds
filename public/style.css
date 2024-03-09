@@ -72,7 +72,9 @@ ul {
   cursor: not-allowed;
 }
 
-#next-question-button, #start-quiz-button, #restart-quiz-button {
+#next-question-button,
+#start-quiz-button,
+#restart-quiz-button {
   background: var(--primary-color);
   color: var(--secondary-color);
   font-weight: 500;
@@ -185,7 +187,6 @@ ul {
   font-weight: 900;
   font-style: italic;
 }
-
 
 /* When the browser screen is 800px or less */
 @media screen and (max-width: 800px) {
