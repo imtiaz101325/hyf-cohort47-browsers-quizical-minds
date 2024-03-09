@@ -12,7 +12,7 @@
 export const quizData = {
   // Counts how many answers are correct. Every right answer will increment this variable by 1
   correctCounter: 0,
-
+  questionsTracker: [],
   currentQuestionIndex: 0,
   // the questions in the quiz
   questions: [
@@ -28,8 +28,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text:
-        'Which Dutch city is famous for its canals, historic houses, and vibrant cultural scene?',
+      text: 'Which Dutch city is famous for its canals, historic houses, and vibrant cultural scene?',
       answers: {
         a: 'Rotterdam',
         b: 'Utrecht',
@@ -51,8 +50,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text:
-        "Which Dutch artist painted 'The Night Watch,' one of the most famous works in the Rijksmuseum in Amsterdam?",
+      text: "Which Dutch artist painted 'The Night Watch,' one of the most famous works in the Rijksmuseum in Amsterdam?",
       answers: {
         a: 'Vincent van Gogh',
         b: 'Rembrandt',
@@ -85,8 +83,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text:
-        'Which Dutch scientist is famous for his contributions to microbiology, including the discovery of bacteria and microscopy techniques?',
+      text: 'Which Dutch scientist is famous for his contributions to microbiology, including the discovery of bacteria and microscopy techniques?',
       answers: {
         a: 'Antonie van Leeuwenhoek',
         b: 'Christiaan Huygens',
@@ -108,8 +105,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text:
-        'What is the name of the Dutch parliamentary body responsible for making and passing laws?',
+      text: 'What is the name of the Dutch parliamentary body responsible for making and passing laws?',
       answers: {
         a: 'Royal Council',
         b: 'Parliament of the Netherlands',
